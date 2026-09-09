@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# local sqlite checkpoint files (langgraph/state_sqllite.py)
+*.db
+
+# generated graph diagrams (langgraph draw_mermaid_png)
+*.png
+
+# secrets — copy .env.example to .env and fill in
+.env
+
+# large / third-party data — bring your own PDF for milvus_persist.py
+llamaindex/docs/*.pdf
+
+# uv stub — this repo installs via requirements.txt, not pyproject
+pyproject.toml
+
+# milvus standalone-script leftovers
+embedEtcd.yaml
+user.yaml
+standalone_embed.sh
+milvus/volumes/

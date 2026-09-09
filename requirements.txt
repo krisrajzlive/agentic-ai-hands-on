@@ -1,0 +1,33 @@
+# LangGraph
+langgraph
+langgraph-checkpoint-sqlite   # checkpoints.py / state_sqllite.py
+langgraph-supervisor          # only if you use the prebuilt supervisor; else drop
+
+# LangChain — core, Ollama binding, text splitter. basically every script
+# in here uses these three (chain, memory, tracing, RAG, all of it)
+langchain-core
+langchain-ollama
+langchain-text-splitters
+langchain-classic  # only agent_example.py needs this — LangChain 1.x moved AgentExecutor here
+langsmith          # langsmith_example.py + the LangGraph tracing examples
+python-dotenv      # anything that loads practice/.env for LANGSMITH_* vars
+
+# MCP — server + LangGraph adapter
+mcp
+langchain-mcp-adapters
+
+# LlamaIndex — core + Ollama LLM/embeddings
+llama-index-core
+llama-index-llms-ollama
+llama-index-embeddings-ollama
+llama-index-vector-stores-milvus   # milvus_persist.py — pulls pymilvus
+pypdf                             # milvus_persist.py reads 2025ar.pdf
+
+# tracing: LlamaIndex has no native LangSmith link, so llamaindex/_trace.py
+# bridges it via OpenInference -> OpenTelemetry -> LangSmith's OTLP endpoint
+openinference-instrumentation-llama-index
+opentelemetry-sdk
+opentelemetry-exporter-otlp-proto-http
+
+# structured output
+pydantic
