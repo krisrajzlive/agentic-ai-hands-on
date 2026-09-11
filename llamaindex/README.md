@@ -27,6 +27,7 @@ Ordered simplest → most involved:
 | 12 | `router_query_engine.py` | advanced | `RouterQueryEngine` + `PydanticSingleSelector` — the LLM reads the tool descriptions and picks a Q&A engine vs a summary engine per question. No args inferred yet. |
 | 13 | `router_tool_calling.py` | advanced | `llm.predict_and_call([tool])`, single-shot — the model calls `search_section(query, section)` and works out **both** values itself |
 | 14 | `research_agent.py` | advanced | `ReActAgent` multi-step loop: `search_kb` → "7 years" → `multiply(365, 7)` → 2555 → answer. Step 2 depends on step 1; streams each `ToolCall` / `ToolCallResult`. |
+| 15 | `rag_eval.py` | advanced | **RAG evaluation** — retrieval metrics (`RetrieverEvaluator`: Hit Rate, MRR, MAP, NDCG) against a hand-picked gold node per query, plus generation metrics (`FaithfulnessEvaluator`, `RelevancyEvaluator`, `CorrectnessEvaluator`, `SemanticSimilarityEvaluator`) against a reference answer. Ties together the retriever + query engine from the rest of this folder. |
 
 Rows 12–14 are a progression — build them in that order, each adds one idea (route an engine → infer the args → loop over tools).
 Rows 9–11 are the three Milvus multi-tenancy strategies, weakest overhead → strongest isolation.
